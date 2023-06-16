@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app3
+  labels:
+    app: react-app3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-app3
+  template:
+    metadata:
+      labels:
+        app: react-app3
+    spec:
+      containers:
+      - name: react-app3
+        image: omkar0707/onestop_fe1:v1
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-app3-service
+spec:
+  selector:
+    app: react-app3
+  ports:
+  - name: http
+    port: 80
+    targetPort: 3000
+  type: NodePort
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: react-app3-route
+spec:
+  to:
+    kind: Service
+    name: react-app3-service
+  port:
+    targetPort: http
+  tls:
+    termination: edge

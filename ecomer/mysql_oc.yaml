@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqldb3
+  labels:
+    app: mysqldb3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysqldb3
+  template:
+    metadata:
+      labels:
+        app: mysqldb3
+    spec:
+      containers:
+      - name: mysqldb3
+        image: omkar0707/onestop_ds:v1
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_DATABASE
+          value: onestop
+        - name: MYSQL_PASSWORD
+          value: "1234"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "1234"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqldb3-service
+spec:
+  selector:
+    app: mysqldb3
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mysqldb3-route
+spec:
+  to:
+    kind: Service
+    name: mysqldb3-service
+  port:
+    targetPort: mysql
+  tls:
+    termination: edge
