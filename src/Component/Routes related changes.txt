@@ -1,0 +1,13 @@
+import DisplaySelected from './Component/DisplaySelected';
+import DeleteSelected from './Component/DeleteSelected';
+import UpdateSelected from './Component/UpdateSelected';
+import AddSelected from './Component/AddSelected';
+import LinkData from './Component/LinkData';
+import AdminLogin from './Component/AdminLogin';
+
+ <Route path="/api/adminlogin" element={<AdminLogin />} />
+        <Route path="/api/admin" element={<LinkData/>} />
+        <Route path="/updateselected/:url/:code" element={<UpdateSelected/>} />
+        <Route path="/deleteselected/:url/:code" element={<DeleteSelected/>} />
+        <Route path="/displayselected/:url/:code" element={<DisplaySelected/>} />
+        <Route path="/addselected/:url" element={<AddSelected/>} />
