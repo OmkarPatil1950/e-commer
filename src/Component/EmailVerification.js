@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import OtpInput from 'react-otp-input';
+import { border } from '@mui/system';
 
 const EmailVerification = () => {
   const [num1, setNum1] = useState('');
@@ -9,7 +11,7 @@ const EmailVerification = () => {
   const [num3, setNum3] = useState('');
   const [num4, setNum4] = useState('');
   const [concatenatedNum, setConcatenatedNum] = useState('');
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     // Update the concatenatedNum whenever any of the individual numbers change
     const concatenated = num1 + num2 + num3 + num4;
@@ -31,33 +33,21 @@ const EmailVerification = () => {
   console.log(first_name);
   console.log("verify otp status")
   console.log(randomNumber)
-  const handleNum1Change = (e) => {
-    setNum1(e.target.value);
-  };
-
-  const handleNum2Change = (e) => {
-    setNum2(e.target.value);
-  };
-
-  const handleNum3Change = (e) => {
-    setNum3(e.target.value);
-  };
-
-  const handleNum4Change = (e) => {
-    setNum4(e.target.value);
-  };
+  const [otp, setOtp] = useState('');
+console.log(otp);
+ 
 
   const handleVerifyAccount = async () => {
-    console.log(concatenatedNum)
+    console.log(otp)
     console.log(randomNumber)
-    if(concatenatedNum===randomNumber){
-    try {
-      const response = await fetch(`http://localhost:8080/api/addcustme`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+    if (otp === randomNumber) {
+      try {
+        const response = await fetch(`http://localhost:8080/api/addcustme`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
             first_name,
             last_name,
             username,
@@ -65,26 +55,26 @@ const EmailVerification = () => {
             address,
             email_id,
             password,
-        }),
-      });
-    
+          }),
+        });
 
-      if (response.ok) {
-        alert("Validated .................!!!");
-        navigate("/")
-      } else {
-        alert("OTP does not match");
+
+        if (response.ok) {
+          alert("Validated .................!!!");
+          navigate("/")
+        } else {
+          alert("OTP does not match");
+        }
+      } catch (error) {
+        console.log("Error:", error);
+        alert("Wrong OTP ......!!!");
       }
-    } catch (error) {
-      console.log("Error:", error);
-      alert("Wrong OTP ......!!!");
     }
-  }
-  else{
-    alert("Invalid otp")  
-  } 
-  
-  
+    else {
+      alert("Invalid otp")
+    }
+
+
   };
 
   return (
@@ -96,72 +86,24 @@ const EmailVerification = () => {
               <p>Email Verification</p>
             </div>
             <div className="flex flex-row text-sm font-medium text-gray-400">
-              <p>We have sent a code to your email ba**@dipainhouse.com</p>
+              <p>We have sent a code to your email {email_id}</p>
             </div>
           </div>
 
           <div>
-            
-              <div className="flex flex-col space-y-16">
-                <div className="flex flex-row justify-center items-center mx-auto w-full max-w-xs">
-                  <div className="w-16 h-16">
-                  <input
-                  type="text"
-                  className='peer relative h-20 mr-2 w-20 rounded-3xl border border-slate-200 px-4 text-sm text-slate-500 outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 '
-                  value={num1}
-                  onChange={handleNum1Change}
-                 
-                />
-                  </div>
-                  <div className="w-16 h-16 ml-10">
-                    <input
-                      className="peer relative h-20 mr-2 w-20 rounded-3xl border border-slate-200 px-4 text-sm text-slate-500 outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
-                      type="text"
-                      name="num2"
-                      id="num2"
-                      value={num2}
-                      onChange={handleNum2Change}
-                      
-                    />
-                  </div>
-                  <div className="w-16 h-16 ml-10">
-                    <input
-                      className="peer relative h-20 mr-2 w-20 rounded-3xl border border-slate-200 px-4 text-sm text-slate-500 outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
-                      type="text"
-                      name="num3"
-                      id="num3"
-                      value={num3}
-                      onChange={handleNum3Change}
-                     
-                    />
-                  </div>
-                  <div className="w-16 h-16 ml-10">
-                    <input
-                      className="peer relative h-20 mr-2 w-20 rounded-3xl border border-slate-200 px-4 text-sm text-slate-500 outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
-                      type="text"
-                      name="num4"
-                      id="num4"
-                      value={num4}
-                      onChange={handleNum4Change}
-                      
-                    />
-                  </div>
-                </div>
+            <OtpInput
+              value={otp}
+              onChange={setOtp}
+              numInputs={4}
+              containerStyle={{ width: '6rem' }}
+              inputStyle={{ width: '6rem', border: '1px solid black' }}
+              renderInput={(props) => <input {...props} className='h-16 ml-2 disabled:w-1em w-32 border border-black' />}
+            />
 
-                <div className='mx-auto'>
-                  <button className="flex flex-row h-2 items-center justify-center  w-24 rounded-2xl py-4 bg-blue-700 border-none text-white text-sm shadow-sm" onClick={handleVerifyAccount}>
-                    Verify Account
-                  </button>
-                </div>
-
-                {/* <div>
-                  <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
-                    <p>Didn't receive code?</p> <a className="flex flex-row items-center text-blue-600" href="http://" target="_blank" rel="noopener noreferrer">Resend</a>
-                  </div>
-                </div> */}
-              </div>
-                
           </div>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm w-24 ml-32 mt-4" onClick={handleVerifyAccount}>
+            Verify
+          </button>
         </div>
       </div>
     </div>

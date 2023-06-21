@@ -20,14 +20,21 @@ function ProductDetails() {
   const [b, setb] = useState([]);
   const [customer, setCustomer] = useState({});
   const email_id = sessionStorage.getItem('email');
-  
+  // const tryonimage=product.p_Image;
+  // console.log("try on image is ")
+  // console.log(tryonimage)
+
   useEffect(() => {
     // Fetch product details by ID
     fetch(`http://localhost:8080/api/productsById/${p_Id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
+        // sessionStorage.setItem("tryonimage", data.p_Image);
+        console.log("--------------------")
+        // console.log(sessionStorage.getItem("tryonimage"))
         setOriginalPrice(data.p_Price);
+          
         setDiscountedPrice((1 - 0.1) * originalPrice * quantity);
       })
       .catch((err) => console.log(err));
@@ -62,6 +69,9 @@ function ProductDetails() {
     setQuantity(quantity + 1);
     setDiscountedPrice((1 - 0.1) * originalPrice * (quantity + 1));
   };
+  const handletryon =()=> {
+    navigate('/tryon');
+  }
   sessionStorage.setItem("Quantity", quantity);
   const handleBuyNow = () => {
     if (sessionStorage.getItem('email')) {
@@ -118,6 +128,8 @@ function ProductDetails() {
       alert("plaese login");
       navigate('/login')
     }
+   
+    
   };
 
 
@@ -126,9 +138,9 @@ function ProductDetails() {
       <div className="flex justify-center h-200 w-10/12 ml-20 mt-24">
         <div className="border border-gray-300 rounded-md p-8 mb-20">
           <div className="flex">
-            <div className="w-15cm">
+            <div className="w-15cm" >
               <Card className="w-30 border-none ml-10">
-                <Card.Img variant="top" className='h-64' src={product.p_Image} />
+                <Card.Img variant="top" className='h-64 hover:transform hover:skew-y-6' src={product.p_Image} />
               </Card>
             </div>
             <div className="w-1/2 ml-5">
@@ -155,7 +167,11 @@ function ProductDetails() {
                     +
                   </button>
                 </Card.Text>
+                
               </Card.Body>
+              <button className="bg-green-500 text-white font-bold py-2 px-4 rounded ml-2" onClick={handletryon}>
+                 Try this out 
+                </button>
               <div className="flex justify-center mt-4">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -172,6 +188,7 @@ function ProductDetails() {
                 <button className="bg-green-500 text-white font-bold py-2 px-4 rounded ml-2" onClick={handleBuyNow}>
                   Buy Now
                 </button>
+
               </div>
             </div>
           </div>

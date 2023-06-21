@@ -30,8 +30,12 @@ import CartPayment from './Component/cartpagepayment'
 import OrderDetails2 from './Component/Order'
 import FAQ from './Component/FAQ'
 import EmailVerification from './Component/EmailVerification'
-import Demo from './Component/demo'
 import { Slide } from '@mui/material'
+import SmokeCursor from './Component/smokemouse'
+import View from './View'
+import TryOn from './Component/tryon'
+
+// import OTP from './Component/Otp'
 
 export default function App() {
   return (
@@ -64,11 +68,12 @@ export default function App() {
         <Route path='/order' element={<OrderDetails2/>}/>
         <Route path='/FAQ' element={<FAQ/>}/>
         <Route path='/Verify' element={<EmailVerification/>}/>
-        <Route path='/demo' element={<Demo/>}/>
         <Route path='/slide' element={<Slide/>}></Route>
-        
+        <Route path='/sm' element={<SmokeCursor/>}/>
+        <Route path='/view360' element={<View/>}/>
+        <Route path='/tryon' element={<TryOn/>}/>
       </Routes>
-     <Footer/>
+     {/* <Footer/> */}
     </BrowserRouter>
   )
 }

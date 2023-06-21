@@ -1,4 +1,6 @@
 import React from "react"
+// import './footer.css'
+import MouseSmoke from './smokemouse'
 // import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react'
 export default function Footer() {
   return (
@@ -6,8 +8,8 @@ export default function Footer() {
       {/*    <!-- Component: Dark Theme Footer --> */}
       <footer className="w-full text-slate-400 ">
         {/*      <!-- Main footer --> */}
-      
-        
+      {/* <MouseSmoke> </MouseSmoke> */}
+
     <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
@@ -45,16 +47,16 @@ export default function Footer() {
               </div>
               <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
               <dd className="mt-2 leading-7 text-gray-400">
-                Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.
+                {/* Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet. */}
               </dd>
             </div>
             <div className="flex flex-col items-start">
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 {/* <HandRaisedIcon className="h-6 w-6 text-white" aria-hidden="true" /> */}
               </div>
-              <dt className="mt-4 font-semibold text-white">No spam</dt>
+              {/* <dt className="mt-4 font-semibold text-white">No spam</dt> */}
               <dd className="mt-2 leading-7 text-gray-400">
-                Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.
+                
               </dd>
             </div>
           </dl>
@@ -69,34 +71,9 @@ export default function Footer() {
           }}
         />
       </div>
-    </div>
-
-
-
-
-    
-      </footer>
-      {/*    <!-- End Dark Theme Footer --> */}
-    </>
-  )
-}
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-
-/*
-<div className="pt-1 pb-1 text-sm border-t border-slate-90">
+    </div>  
+   <div className=' pt-1 bg-gray-900 py-16 sm:py-24 lg:py-32'>
+    <div className="pt-1 pb-1 text-sm border-t border-gray-900 bg-gray-900">
         <div className="container px-6 mx-auto">
             <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
               <nav
@@ -298,11 +275,37 @@ export default function Footer() {
             </div>
           </div>
       
+ </div>     
       
-      
-        </div>
+ 
+ 
+ </div>  
+ 
 
 
 
-
+    
+      </footer>
+      {/*    <!-- End Dark Theme Footer --> */}
+    </>
+  )
+}
+/*
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
 */
+
+     
+
+
+

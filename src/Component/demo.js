@@ -1,10 +1,14 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Popover } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { useState } from 'react'
 
 
 
 export default function Demo() {
+
+
+
+
   return (
     <div className='flex justify-start px-72 '>
     <Popover className="justify-start px-1 ml-5">
@@ -12,10 +16,15 @@ export default function Demo() {
         <span>Home Appliances</span>
         <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
       </Popover.Button>
+       
+       
+       
+       
         <Popover.Panel className="absolute left-25% overscroll-contain z-10 mt-2 flex w-52 h-26 px-1">
           <div className="w-96 max-w-24 flex-auto overflow-hidden rounded-sm bg-slate-50 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
             <div className="p-3 overflow-y-auto max-h-30">
-                <a href='/productsbycat/6'><option className='flex border-solid border-black text-xl text-black  hover:bg-slate-200 hover:cursor-pointer'>Kitchen Appliances</option></a>
+            
+                <a href='/productsbycat/6'><option className='flex border-solid border-black text-xl text-black  hover:bg-slate-200 hover:cursor-pointer '>Kitchen Appliances</option></a>
                 <a href='/productsbycat/7'><option className='flex border-solid border-black text-xl text-black  hover:bg-slate-200 hover:cursor-pointer'>Furniture</option></a>
                 <a href='/productsbycat/8'><option className='flex border-solid border-black text-xl text-black  hover:bg-slate-200 hover:cursor-pointer'>Electronics</option></a> 
             </div>
