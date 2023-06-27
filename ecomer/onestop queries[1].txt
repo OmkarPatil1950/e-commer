@@ -1,0 +1,169 @@
+-- Inserting categories
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('../images/homeapp.png', 'Home Appliances', 0x01, 0);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('../images/beuty.png', 'Beauty', 0x01, 0);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('../images/fashion.png', 'Fashion', 0x01, 0);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('../images/electronics.png', 'Electronics', 0x01, 0);
+
+-- Insert Grocery category
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('../images/supermarket.jpg', 'Super Market', 0x01, 0);
+
+********************************
+
+
+-- Inserting subcategories for Home Appliances
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('../images/kit01.png', Kitchen Appliances',0x00, 1);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('../images/fur01.png', 'Furniture', 0x00, 1);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/sofa.png', 'Sofa', 0x00, 1);
+
+
+-- Inserting subcategories for Beauty
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/makeup.png', 'Makeup', 0x00, 2);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/skincare.png', 'Skincare', 0x00, 2);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/haircare.png', 'Haircare', 0x00, 2);
+
+
+-- Inserting subcategories for Fashion
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/men.png', 'Men', 0x00, 3);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/women.png', 'Women', 0x00, 3);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/kids.png', 'Kids', 0x00, 3);
+
+
+-- Inserting subcategories for Electronics
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/tv.png', 'TV', 0x00, 4);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/camera.png', 'Camera', 0x00, 4);
+
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/mobile.png', 'Mobile', 0x00, 4);
+
+
+-- Insert Health & Nutrition subcategory
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/health_nutrition.png', 'Health & Nutrition', 0x00, 21);
+
+-- Insert Fruits & Vegetables subcategory
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/fruits_vegetables.png', 'Fruits & Vegetables', 0x00, 21);
+
+-- Insert Rice & Dal subcategory
+INSERT INTO category (category_img_path, category_name, flag, parentcategory_id)
+VALUES ('images/rice_dal.png', 'Rice & Dal', 0x00, 21);
+
+************************************
+
+
+-- Sample products for 'Fridge' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('fridge_model_a.jpg', 'Samsung Refrigerator', 25000.00, 0, 0, 1);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('fridge_model_b.jpg', 'LG Refrigerator', 22000.00, 0, 0, 1);
+
+
+-- Sample products for 'AC' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('../images/Appliances_img/ac/ac01.jpg', 'Carrier AC', 76090.00, 0, 0, 6);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('../images/Appliances_img/ac/ac02.jpg', 'Realme Techlife AC', 50999.00, 0, 0, 6);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('../images/Appliances_img/ac/ac03.jpg', 'Daikin AC', 58400.00, 0, 0, 6);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('../images/Appliances_img/ac/ac04.jpg', 'Bluestar AC', 52990.00, 0, 0, 6);
+
+-- Sample products for 'Sofa' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('sofa_model_a.jpg', 'L-Shaped Fabric Sofa', 40000.00, 0, 0, 7);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('sofa_model_b.jpg', 'Leather Recliner Sofa', 55000.00, 0, 0, 7);
+
+-- Sample products for 'Makeup' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('makeup_product_a.jpg', 'MAC Lipstick', 25.00, 0, 0, 8);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('makeup_product_b.jpg', 'Maybelline Mascara', 12.50, 0, 0, 8);
+
+-- Sample products for 'Skincare' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('skincare_product_a.jpg', 'Cetaphil Cleanser', 15.00, 0, 0, 9);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('skincare_product_b.jpg', 'Neutrogena Moisturizer', 20.00, 0, 0, 9);
+
+-- Sample products for 'Haircare' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('haircare_product_a.jpg', 'L\'Oreal Shampoo', 10.00, 0, 0, 10);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('haircare_product_b.jpg', 'Pantene Conditioner', 8.50, 0, 0, 10);
+
+-- Sample products for 'Men' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('men_product_a.jpg', 'Adidas Sports Shoes', 60.00, 0, 0, 11);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('men_product_b.jpg', 'Levi\'s Jeans', 45.00, 0, 0, 11);
+
+-- Sample products for 'Women' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('women_product_a.jpg', 'Zara Floral Dress', 35.00, 0, 0, 12);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('women_product_b.jpg', 'Michael Kors Handbag', 120.00, 0, 0, 12);
+
+-- Sample products for 'Kids' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('kids_product_a.jpg', 'Disney Mickey T-Shirt', 15.00, 0, 0, 13);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('kids_product_b.jpg', 'Barbie Doll Set', 25.00, 0, 0, 13);
+
+-- Sample products for 'TV' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('tv_product_a.jpg', 'Samsung 55" 4K Smart TV', 800.00, 0, 0, 14);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('tv_product_b.jpg', 'LG 65" OLED TV', 1200.00, 0, 0, 14);
+
+-- Sample products for 'Camera' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('camera_product_a.jpg', 'Canon DSLR Camera', 900.00, 0, 0, 15);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('camera_product_b.jpg', 'Sony Mirrorless Camera', 1000.00, 0, 0, 15);
+
+-- Sample products for 'Mobile' subcategory
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('mobile_product_a.jpg', 'iPhone 12', 1100.00, 0, 0, 16);
+
+INSERT INTO product (p_image, p_name, p_price, p_prime, p_promotion, cat_id)
+VALUES ('mobile_product_b.jpg', 'Samsung Galaxy S21', 900.00, 0, 0, 16);
